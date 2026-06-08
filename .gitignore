@@ -1,12 +1,13 @@
+# Ignore everything
 *
 
-!02_streamlit_summarize
-!02_streamlit_summarize/**
-!app
-!app/
+# Allow the directories themselves (so Git can track inside them)
+!**/
 
-
+# Explicitly unignore your app contents and gitignore
+!/app/**
 !.gitignore
 
+# Re-ignore specific files you definitely don't want
 *.env
 *.swp
