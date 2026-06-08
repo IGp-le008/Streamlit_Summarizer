@@ -2,6 +2,10 @@
 
 !02_streamlit_summarize
 !02_streamlit_summarize/**
+!app
+!app/
+
+
 !.gitignore
 
 *.env
