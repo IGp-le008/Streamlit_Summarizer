@@ -1,0 +1,15 @@
+services:
+        app:
+                build:
+                        context: .
+                        dockerfile: Dockerfile
+                command: >
+                        sh -c " python prompt_template.py && streamlit run main.py --server.port:8051 --server.address=0.0.0.0"
+                ports:
+                        -"8051:8051"
+                env_file:
+                        - .env
+                stdin_open: true
+                tty: true
+                container_name: streamlit_summarizer_container
+                        

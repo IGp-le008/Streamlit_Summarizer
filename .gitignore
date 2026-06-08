@@ -3,11 +3,14 @@
 
 # Allow the directories themselves (so Git can track inside them)
 !**/
+!02_streamlit_summarize
+!02_streamlit_summarize/**
 
 # Explicitly unignore your app contents and gitignore
 !/app/**
 !.gitignore
-
+!Dockerfile
+!compose.yaml
 # Re-ignore specific files you definitely don't want
 *.env
 *.swp
