@@ -1,0 +1,8 @@
+*
+
+!Langchain_Prompts
+!Langchain_Prompts/**
+
+
+*.env
+*.swp
