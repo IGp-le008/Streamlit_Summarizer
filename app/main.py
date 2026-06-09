@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
 from  langchain_core.prompts import load_prompt, PromptTemplate
+from langchain_openai import ChatOpenAI
 import streamlit as st
 
 
@@ -13,12 +14,13 @@ load_dotenv()
 
 
 hf_api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN")
-llama_model="meta-llama/Llama-3.1-8B"
+#llama_model="meta-llama/Llama-3.1-8B"
+qwen_model="Qwen/Qwen2.5-7B-Instruct"
 
 chat_model = ChatOpenAI(
     base_url="https://router.huggingface.co/v1",
     api_key=hf_api_key,
-    model=hf_model 
+    model=qwen_model 
 )
 
 
@@ -59,7 +61,7 @@ template = load_prompt('template.json')
 
 
 if st.button('Summarize'):
-    chain = template | model
+    chain = template | chat_model
     result = chain.invoke({
         'paper_input':paper_input,
         'style_input':style_input,

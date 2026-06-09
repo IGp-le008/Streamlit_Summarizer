@@ -4,9 +4,9 @@ services:
                         context: .
                         dockerfile: Dockerfile
                 command: >
-                        sh -c " python prompt_template.py && streamlit run main.py --server.port:8051 --server.address=0.0.0.0"
+                        sh -c " python prompt_template.py && streamlit run main.py"
                 ports:
-                        -"8051:8051"
+                        - "8501:8501"
                 env_file:
                         - .env
                 stdin_open: true
