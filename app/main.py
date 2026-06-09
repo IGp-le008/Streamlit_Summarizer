@@ -1,27 +1,27 @@
 import os
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
-from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
-from langchain_ollama import OllamaLLM
 from  langchain_core.prompts import load_prompt, PromptTemplate
 import streamlit as st
 
 
 
-# api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN")
-
-
 load_dotenv()
-# model="meta-llama/Llama-3.1-8B"
-model = OllamaLLM(model="llama3")
 
-#for using online model 
-llm = HuggingFaceEndpoint(
-    repo_id="Qwen/Qwen2.5-7B-Instruct",
-    huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN")
+
+# model="deepseek-ai/DeepSeek-V4-Pro:novita" 
+
+
+hf_api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN")
+llama_model="meta-llama/Llama-3.1-8B"
+
+chat_model = ChatOpenAI(
+    base_url="https://router.huggingface.co/v1",
+    api_key=hf_api_key,
+    model=hf_model 
 )
 
-chat_model = ChatHuggingFace(llm=llm)
+
 
 st.header('LLaMA-3 Chatbot')
 
